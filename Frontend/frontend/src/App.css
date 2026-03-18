@@ -1,49 +1,19 @@
-:root {
-  --bg: rgba(255, 255, 255, 0.72);
-  --panel: rgba(255, 255, 255, 0.82);
-  --text: #1d1d1f;
-  --text-secondary: #6e6e73;
-  --text-h: #111111;
-  --border: rgba(60, 60, 67, 0.12);
-  --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  --accent: #0071e3;
-  --accent-bg: rgba(0, 113, 227, 0.08);
-  --accent-border: rgba(0, 113, 227, 0.28);
-  --social-bg: rgba(255, 255, 255, 0.72);
-}
-
-body {
-  margin: 0;
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC",
-    "Helvetica Neue", sans-serif;
-  background:
-    radial-gradient(circle at top left, #f5f7fa 0%, #eef2f7 35%, #e9edf3 100%);
-}
-
 .counter {
-  font-size: 15px;
-  font-weight: 500;
-  padding: 10px 18px;
-  border-radius: 999px;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
   color: var(--accent);
   background: var(--accent-bg);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  transition: all 0.25s ease;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
   margin-bottom: 24px;
-  box-shadow: 0 6px 18px rgba(0, 113, 227, 0.08);
 
   &:hover {
     border-color: var(--accent-border);
-    transform: translateY(-1px);
-    box-shadow: 0 10px 24px rgba(0, 113, 227, 0.12);
   }
-
   &:focus-visible {
-    outline: 2px solid rgba(0, 113, 227, 0.35);
-    outline-offset: 3px;
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 }
 
@@ -58,16 +28,14 @@ body {
   }
 
   .base {
-    width: 180px;
+    width: 170px;
     position: relative;
     z-index: 0;
-    filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.12));
   }
 
   .framework,
   .vite {
     position: absolute;
-    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.08));
   }
 
   .framework {
@@ -75,7 +43,7 @@ body {
     top: 34px;
     height: 28px;
     transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.35);
+      scale(1.4);
   }
 
   .vite {
@@ -84,18 +52,17 @@ body {
     height: 26px;
     width: auto;
     transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.82);
+      scale(0.8);
   }
 }
 
 #center {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 25px;
   place-content: center;
   place-items: center;
   flex-grow: 1;
-  padding: 48px 28px;
 
   @media (max-width: 1024px) {
     padding: 32px 20px 24px;
@@ -105,21 +72,12 @@ body {
 
 #next-steps {
   display: flex;
+  border-top: 1px solid var(--border);
   text-align: left;
-  margin: 0 auto;
-  width: min(1100px, calc(100% - 32px));
-  background: var(--bg);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 28px;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: var(--shadow);
-  overflow: hidden;
 
   & > div {
     flex: 1 1 0;
     padding: 32px;
-
     @media (max-width: 1024px) {
       padding: 24px 20px;
     }
@@ -129,22 +87,6 @@ body {
     margin-bottom: 16px;
     width: 22px;
     height: 22px;
-    opacity: 0.9;
-  }
-
-  h2,
-  h3 {
-    margin: 0 0 10px;
-    color: var(--text-h);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-  }
-
-  p {
-    margin: 0;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    font-size: 15px;
   }
 
   @media (max-width: 1024px) {
@@ -166,8 +108,8 @@ body {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 10px;
-  margin: 28px 0 0;
+  gap: 8px;
+  margin: 32px 0 0;
 
   .logo {
     height: 18px;
@@ -175,27 +117,19 @@ body {
 
   a {
     color: var(--text-h);
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 14px;
+    font-size: 16px;
+    border-radius: 6px;
     background: var(--social-bg);
-    border: 1px solid rgba(255, 255, 255, 0.72);
     display: flex;
-    padding: 10px 14px;
+    padding: 6px 12px;
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    transition: all 0.25s ease;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
 
     &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-      border-color: rgba(60, 60, 67, 0.16);
+      box-shadow: var(--shadow);
     }
-
     .button-icon {
       height: 18px;
       width: 18px;
@@ -220,18 +154,16 @@ body {
 }
 
 #spacer {
-  height: 72px;
+  height: 88px;
   border-top: 1px solid var(--border);
-
   @media (max-width: 1024px) {
-    height: 42px;
+    height: 48px;
   }
 }
 
 .ticks {
   position: relative;
   width: 100%;
-  opacity: 0.75;
 
   &::before,
   &::after {
@@ -245,7 +177,6 @@ body {
     left: 0;
     border-left-color: var(--border);
   }
-
   &::after {
     right: 0;
     border-right-color: var(--border);
